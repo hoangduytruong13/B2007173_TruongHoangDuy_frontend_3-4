@@ -1,5 +1,6 @@
-import { createWebHistory, createRouter } from "vue-router";
-import ContactBook from "@/views/ContactBook.vue";
+
+import { createWebHistory, createRouter } from "vue-router"
+import ContactBook from "@/views/ContactBook.vue"
 
 const routes = [
   {
@@ -20,14 +21,17 @@ const routes = [
     component: () => import("@/views/ContactEdit.vue"),
     props: true, // Truyền các biến trong $route.params vào làm props
   },
-
-  
-
-];
+  {
+    path: "/contacts/create",
+    name: "contact.add",
+    component: () => import("@/views/CreateContact.vue"),
+    props: true, // Truyền các biến trong $route.params vào làm props
+  },
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-});
+})
 
-export default router;
+export default router;  
